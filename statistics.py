@@ -20,8 +20,8 @@ class MrFppi:
         ax.set_xlabel('FPPI')
         ax.set_ylabel('Miss Rate')
 
-        ax.grid(b=True, which='major', linestyle='-')
-        ax.yaxis.grid(b=True, which='minor', linestyle='--')
+        ax.grid(visible=True, which='major', linestyle='-')
+        ax.yaxis.grid(visible=True, which='minor', linestyle='--')
 
         ax.set_xlim([5 * 1e-5, 10])
         ax.set_ylim([8 * 1e-3, 1])

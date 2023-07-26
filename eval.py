@@ -66,10 +66,10 @@ def evaluate(difficulty, ignore_other_vru, results_path, det_path, gt_path, det_
                                                                              difficulty, eval_type))
 
     if os.path.exists(pkl_path) and use_cache:
-        print '# # # # # # # # # # # # # # # # # # # --- NOTE --- # # # # # # # # # # # # # # #'
-        print 'Using cached result for "{}".'.format(det_path)
-        print 'Cache file: {}'.format(pkl_path)
-        print '# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #'
+        print('# # # # # # # # # # # # # # # # # # # --- NOTE --- # # # # # # # # # # # # # # #')
+        print('Using cached result for "{}".'.format(det_path))
+        print('Cache file: {}'.format(pkl_path))
+        print('# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #')
         result = Result.load_from_disc(pkl_path)
     else:
         data = load_data_ecp(gt_path, det_path)
@@ -88,27 +88,27 @@ def evaluate(difficulty, ignore_other_vru, results_path, det_path, gt_path, det_
     fig.savefig(os.path.join(results_path, '{}.pdf'.format(filename)))  # vector graphic
     fig.savefig(os.path.join(results_path, '{}.png'.format(filename)))  # png
 
-    print '# ----------------------------------------------------------------- #'
-    print 'Finished evaluation of ' + det_method_name
-    print 'difficulty={}, ignore_other_vru={}, evaltype={}'.format(difficulty, ignore_other_vru,
-                                                                   eval_type)
-    print '---'
-    print 'Log-Avg Miss Rate (caltech reference implementation): ', \
-        mr_fppi.log_avg_mr_reference_implementation()
-    print '-'
-    print 'Processed number of frames: ', result.nof_imgs
-    print 'Number of ignored ground truth annotations: ', \
-        len(result.gts_including_ignored) - len(result.gts)
-    print 'Number of skipped ground truth annotations: ', result.skipped_gts['count']
-    print 'Classes of skipped ground truth annotations: ', list(result.skipped_gts['types'])
-    print 'Number of skipped detections: ', result.skipped_dets['count']
-    print 'Classes of skipped detections: ', list(result.skipped_dets['types'])
-    print '# ----------------------------------------------------------------- #'
-    print ''
+    print('# ----------------------------------------------------------------- #')
+    print('Finished evaluation of ' + det_method_name)
+    print('difficulty={}, ignore_other_vru={}, evaltype={}'.format(difficulty, ignore_other_vru,
+                                                                   eval_type))
+    print('---')
+    print('Log-Avg Miss Rate (caltech reference implementation): ', \
+        mr_fppi.log_avg_mr_reference_implementation())
+    print('-')
+    print('Processed number of frames: ', result.nof_imgs)
+    print('Number of ignored ground truth annotations: ', \
+        len(result.gts_including_ignored) - len(result.gts))
+    print('Number of skipped ground truth annotations: ', result.skipped_gts['count'])
+    print('Classes of skipped ground truth annotations: ', list(result.skipped_gts['types']))
+    print('Number of skipped detections: ', result.skipped_dets['count'])
+    print('Classes of skipped detections: ', list(result.skipped_dets['types']))
+    print('# ----------------------------------------------------------------- #')
+    print('')
 
 
 def evaluate_detection(results_path, det_path, gt_path, det_method_name, eval_type='pedestrian'):
-    print 'Start evaluation for {}'.format(det_method_name)
+    print('Start evaluation for {}'.format(det_method_name))
     for difficulty in ['reasonable', 'small', 'occluded', 'all']:
         # False is the default case used by the benchmark server,
         # use [True, False] if you want to compare the enforce with the ignore setting
@@ -131,10 +131,10 @@ def eval(time='day', mode='val', eval_type='pedestrian'):
         os.makedirs(results_path)
 
     evaluate_detection(results_path, det_path, gt_path, det_method_name, eval_type)
-    print ''
-    print '# -----------------------------------------------------------------'
-    print 'Finished evaluation, results can be found here: {}'.format(results_path)
-    print '# -----------------------------------------------------------------'
+    print('')
+    print('# -----------------------------------------------------------------')
+    print('Finished evaluation, results can be found here: {}'.format(results_path))
+    print('# -----------------------------------------------------------------')
 
 
     import matplotlib.pyplot as plt
