@@ -4,6 +4,14 @@ import glob
 import dataconverter
 
 
+
+# if str(ROOT) not in sys.path:
+#     sys.path.append(str(ROOT))  # add ROOT to PATH
+# ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
+# os.chdir(ROOT)
+
+
 # TODO adapt this method to get real detections on the given image.
 # You have to stick to the given result format.
 def mock_detector(image):
