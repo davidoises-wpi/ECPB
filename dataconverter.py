@@ -4,7 +4,7 @@ from pathlib import Path
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # ECPB directory
-# ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+os.chdir(ROOT)
 
 def get_inverse_dict(d):
     inverse_dict = {}
@@ -91,5 +91,5 @@ def ecp_to_kitti(source, dest='conversion_test/kitti.txt'):
 # as truncation levels are discretized in ecp the transformation from kitti to ecp can not be
 # completely inverted
 
-kitti_to_ecp(str(ROOT / 'conversion_test/kitti_in.txt'))
-ecp_to_kitti(str(ROOT / 'conversion_test/ecp.json'))
+kitti_to_ecp('conversion_test/kitti_in.txt')
+ecp_to_kitti('conversion_test/ecp.json')
